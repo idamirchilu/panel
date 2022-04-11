@@ -1,10 +1,6 @@
-import { Card, Collapse, Form } from "react-bootstrap";
-import calendarIcon from "../icons/calendar.png";
-import mapsIcon from "../icons/maps.png";
-import newsIcon from "../icons/news.png";
-import chatIcon from "../icons/chat.png";
-import contactsIcon from "../icons/contacts.png";
-import driveIcon from "../icons/drive.png";
+import { Card, Collapse, Button, Form } from "react-bootstrap";
+import Icons from "./components/Icons";
+import MainForm from "./components/MainForm";
 
 export default function Panel(props) {
   return (
@@ -19,38 +15,25 @@ export default function Panel(props) {
               direction: "ltr",
             }}
           >
-            <Form.Group>
-              <Form.Label>Availability levels</Form.Label>
-              <Form.Select
-                aria-label="Default select example"
-                style={{ width: "120px" }}
+            <Form.Group style={{ display: "flex", flexDirection: "column" }}>
+              <Form.Label htmlFor="availability-levels">
+                Availability levels:
+              </Form.Label>
+              <Form.Control
+                className="w-50"
+                id="availability-levels"
+                type="text"
+              />
+              <Button
+                style={{ marginTop: "3px", width: "18%" }}
+                variant="light"
               >
-                <option value="1">Father</option>
-                <option value="2">Mother</option>
-                <option value="3">Brother</option>
-              </Form.Select>
+                Enter
+              </Button>
             </Form.Group>
-            <div className="icons">
-              <a href="www.google.com">
-                <img src={calendarIcon} alt="calendar" />
-              </a>
-              <a href="www.google.com">
-                <img src={mapsIcon} alt="maps" />
-              </a>
-              <a href="www.google.com">
-                <img src={newsIcon} width="45px" height="45px" alt="maps" />
-              </a>
-              <br />
-              <a href="www.google.com">
-                <img src={chatIcon} width="45px" height="45px" alt="chat" />
-              </a>
-              <a href="www.google.com">
-                <img src={driveIcon} alt="drive" />
-              </a>
-              <a href="www.google.com">
-                <img src={contactsIcon} alt="contacts" />
-              </a>
-            </div>
+            <MainForm />
+            <Button className="mt-1">Submit</Button>
+            <Icons />
           </Card>
         </div>
       </Collapse>
