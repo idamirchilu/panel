@@ -10,26 +10,28 @@ export default function Panel(props) {
           <Card
             body
             style={{
+              color: "#fff",
               width: "400px",
-              backgroundColor: "rgb(103, 103, 255)",
+              backgroundColor: "rgba(31, 8, 31, 0.83)",
               direction: "ltr",
             }}
           >
-            <Form.Group style={{ display: "flex", flexDirection: "column" }}>
+            <Form.Group>
               <Form.Label htmlFor="availability-levels">
                 Availability levels:
               </Form.Label>
-              <Form.Control
-                className="w-50"
-                id="availability-levels"
-                type="text"
-              />
-              <Button
-                style={{ marginTop: "3px", width: "18%" }}
-                variant="light"
+              <div
+                style={{
+                  display: "flex",
+                }}
               >
-                Enter
-              </Button>
+                <Form.Control
+                  className="w-50"
+                  id="availability-levels"
+                  type="text"
+                />
+                <Button variant="light">Enter</Button>
+              </div>
             </Form.Group>
             <MainForm />
             <Button className="mt-1">Submit</Button>

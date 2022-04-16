@@ -1,5 +1,7 @@
 import { Form } from "react-bootstrap";
 
+const tags = ["blue", "green", "yellow", "red", "orange", "purple"];
+
 export default function MainForm() {
   return (
     <Form>
@@ -20,13 +22,18 @@ export default function MainForm() {
         <Form.Control className="w-50" type="text" id="link" />
       </Form.Group>
       <Form.Group className="mt-1">
-        <Form.Check
-          style={{ backgroundColor: "red", color: "red" }}
-          inline
-          type="radio"
-        />
-        <Form.Check style={{ backgroundColor: "green" }} inline type="radio" />
-        <Form.Check style={{ backgroundColor: "yellow" }} inline type="radio" />
+        <Form.Label htmlFor="tags">Tags:{"  "}</Form.Label>
+        {tags.map((tag) => {
+          return (
+            <Form.Check
+              style={{ backgroundColor: tag }}
+              inline
+              type="radio"
+              id="tags"
+              value={tag}
+            />
+          );
+        })}
       </Form.Group>
       <Form.Group>
         <Form.Label>Event:</Form.Label>
