@@ -1,8 +1,20 @@
 import { Card, Collapse, Button, Form } from "react-bootstrap";
 import Icons from "./components/Icons";
 import MainForm from "./components/MainForm";
+import { useState, useRef } from "react";
 
 export default function Panel(props) {
+  const [availabilityLevelData, setAvailabilityLevelData] = useState([]);
+  const availabilityLevelInputRef = useRef();
+
+  const addAvailabilityLevelDataHandler = () => {
+    console.log(availabilityLevelInputRef.current.value);
+    setAvailabilityLevelData((prev) => [
+      ...prev,
+      availabilityLevelInputRef.current.value,
+    ]);
+  };
+
   return (
     <div style={{ minHeight: "150px" }}>
       <Collapse in={props.open} dimension="width">
@@ -12,7 +24,9 @@ export default function Panel(props) {
             style={{
               color: "#fff",
               width: "400px",
-              backgroundColor: "rgba(31, 8, 31, 0.83)",
+              backgroundColor: "#abe9cd",
+              backgroundImage:
+                "linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%)",
               direction: "ltr",
             }}
           >
@@ -29,10 +43,19 @@ export default function Panel(props) {
                   className="w-50"
                   id="availability-levels"
                   type="text"
+                  ref={availabilityLevelInputRef}
                 />
-                <Button variant="light">Enter</Button>
+                <Button
+                  onClick={addAvailabilityLevelDataHandler}
+                  style={{ marginLeft: "0.5rem" }}
+                >
+                  Enter
+                </Button>
               </div>
             </Form.Group>
+            {availabilityLevelData.map((item) => (
+              <p key={item}>{item}</p>
+            ))}
             <MainForm />
             <Button className="mt-1">Submit</Button>
             <Icons />

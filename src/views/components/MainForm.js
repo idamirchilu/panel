@@ -22,7 +22,9 @@ export default function MainForm() {
         <Form.Control className="w-50" type="text" id="link" />
       </Form.Group>
       <Form.Group className="mt-1">
-        <Form.Label htmlFor="tags">Tags:{"  "}</Form.Label>
+        <Form.Label style={{ marginRight: "0.5rem" }} htmlFor="tags">
+          Tags:
+        </Form.Label>
         {tags.map((tag) => {
           return (
             <Form.Check
